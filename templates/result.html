@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Where should I live?</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static', filename='css/materialize.min.css')}}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css')}}" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  </head>
+  <style type="text/css">
+    .navbar-nav > li{
+       font-size: 14px;
+    }
+  </style>
+  <body >
+
+    <nav>
+      <div class="nav-wrapper teal accent-4">
+        <a href="/" class="brand-logo" style="padding-left: 20px;">Should I Move?</a>
+      </div>
+    </nav>
+
+    <div class="container">
+ 
+      <div class="card-panel teal">
+        <span class="white-text">
+          <h5 style="text-align:center">Should I move to __ ?</h5>
+        </span>
+      </div>
+      <center>
+          <button class="modal-trigger waves-effect waves-light btn btn-large" href="#modal1">
+            <i class="material-icons right">visibility</i>SHOW RESULTS
+          </button>
+        </center>
+        <div class="modal" id="modal1">
+          <div class="modal-content">
+            <ul class="tabs">
+              <li></li>
+              <li class="tab col s3 disabled">
+                <a><span class="black-text"><h4>Result</h4></span></a>
+              </li>
+            </ul>
+            <div class="progress">
+              <div class="determinate" style="width: 100%"></div>
+            </div>
+            
+            <div class="collection">
+              <a href="" class="collection-item">{{text}}</a>
+              <a href="" class="collection-item">Migration Factor: {{diff}}</a>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+            <a href="" class="modal-action modal-close waves-effect waves-green btn-flat ">DONE</a>
+          </div>
+        </div>
+      
+        
+     
+        
+    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{{ url_for('static', filename='js/jquery.js')}}"></script>
+    <script src="{{ url_for('static', filename='js/materialize.min.js')}}"></script>
+   
+  </body>
+</html>
+<script type="text/javascript">
+  $(document).ready(function() {
+      $('select').material_select();
+  });
+  $(document).ready(function(){
+       $('.modal-trigger').leanModal();
+   });
+  
+  $('#modal1').openModal();
+  $('#modal1').closeModal();
+</script>
